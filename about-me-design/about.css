@@ -1,0 +1,136 @@
+:root {
+  --bg: #ffffff;
+  --text: #14222a;
+  --muted: #5a6b74;
+  --border: #e2e8eb;
+  --accent: #0f766e;
+  --accent-hover: #115e59;
+  --accent-soft: #e0f2f0;
+  --on-accent: #ffffff;
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1519;
+    --text: #e8eff1;
+    --muted: #9bacb3;
+    --border: #253640;
+    --accent: #2dd4bf;
+    --accent-hover: #5eead4;
+    --accent-soft: #123a3a;
+    --on-accent: #06201e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1.5rem;
+  background:
+    radial-gradient(50rem 22rem at 85% -10%, var(--accent-soft), transparent 70%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, p {
+  margin: 0;
+}
+
+.about {
+  width: 100%;
+  max-width: 680px;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+h1 span {
+  color: var(--accent);
+}
+
+.lead {
+  margin: 1.5rem 0;
+  font-size: clamp(1.15rem, 3vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.lead + p,
+p + p {
+  margin-top: 1rem;
+}
+
+.about > p:not(.badge):not(.lead) {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn.primary:hover {
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
